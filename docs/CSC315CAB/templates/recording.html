@@ -1,0 +1,41 @@
+<!-- Page that displays all relevant information about a recording -->
+<!-- Implemented by Jabili -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trentoniana Department of the Trenton Free Public Library</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <br>
+        <h1>The Trentoniana Department of the Trenton Free Public Library</h1>
+        <hr>
+    </header>
+    <h2>Recording</h2>
+
+    <!-- Display information -->
+    <center>
+    <h3>{{recordingTitle}}</h3>
+    <a href={{audioFile}} target="_blank">Audio File Link</a><br>
+    <a href="{{ url_for('transcript') }}" target="_blank">Transcript Text</a>
+    
+    <p>{{description}}</p>
+    <p>{{publicationDes}}{{publicationDate}}</p>
+    <p>{{yearDes}}{{yearRecorded}}</p>
+    
+    <p>{{topicDes}}{%for row in topic%}
+        {%for col in row%}
+        {{col}} 
+        {%endfor%}
+    {%endfor%} </p>
+    </center>
+
+
+</body></html>
