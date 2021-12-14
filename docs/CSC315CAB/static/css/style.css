@@ -1,0 +1,70 @@
+/* Styling for site */
+/* Implemented by Jabili */
+
+header {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    float: top;
+}
+
+aside {
+    float: left;
+    padding-right: 1rem;
+    border-right-style: solid;
+    border-right-width: 0.15rem;
+}
+
+h2 {
+    text-align: center;
+    background-color: white;
+}
+
+input:focus {
+    border: 3px solid #555;
+}
+
+.errorMessage {
+    text-align: center;
+    color: red;
+}
+
+.searchBar {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.filterHeading {
+    border-bottom-style: solid;
+    border-bottom-width: 0.01rem;
+}
+
+.superuser {
+    text-align: center;
+    border-style: solid;
+    padding: 0.2rem;
+}
+
+.login {
+	width: 6.25rem;
+	height: 6.25rem;
+	
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+}
+
+.transaction {
+    margin-bottom: 1.5rem;
+    border-style: solid;
+    padding-bottom: 0.5rem;
+}
