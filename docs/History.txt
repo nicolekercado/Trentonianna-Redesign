@@ -1,0 +1,111 @@
+\i stage5.sql
+SELECT * FROM SPEAKER;
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+DROP TABLE TRANSCRIPT;
+DROP TABLE HAS_TRANSCRIPT;
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\q
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\q
+\i stage5.sql
+\i stage5.sql
+\o out.txt
+\i stage5.sql
+\o
+\i stage5.sql
+\q
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\q
+CREATE EXTENSION "pg_trgm";
+\q
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\i stage5.sql
+\q
+\s history.txt
