@@ -1,0 +1,233 @@
+<!-- Superuser transaction page -->
+<!-- Implemented by Jabili -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trentoniana Department of the Trenton Free Public Library</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <br>
+        <h1>The Trentoniana Department of the Trenton Free Public Library</h1>
+        <hr>
+    </header>
+    <h2>Superuser Transactions</h2>
+
+    <div align="center">
+        <!-- Display all attributes -->
+        <p style="color:red;text-align:center">{{message}}</p>
+        <form class="transaction" action="/all-attributes" method="POST">
+            <p>Supply a recording title to see the recording’s attributes and its corresponding speakers and transcript and their attributes as well.</p>
+            <label for="t1title">Recording Title:</label><br>
+            <input type="text" id="t1title" name="t1title" required><br><br>
+            <input type="submit" value="Display">
+        </form>
+
+        <!-- Add a recording -->
+        <p style="color:red;text-align:center">{{addRecordingMessage}}</p>
+        <form class="transaction" action="/add-recording" method="POST">
+            <p>To add a recording, fill in the attribute values.</p>
+            <label for="t2title">Recording Title:</label>
+            <input type="text" id="t2title" name="t2title" required>
+            <label for="t2link">Audio File Link:</label>
+            <input type="text" id="t2link" name="t2link" required><br><br>
+            <label for="t2year">Decade Recorded:</label>
+            <input type="text" id="t2year" name="t2year" required>
+            <label for="t2name">Interviewer Name:</label>
+            <input type="text" id="t2name" name="t2name" required><br><br>
+            <label for="t2date">Publication Date:</label>
+            <input type="text" id="t2date" name="t2date" required>
+            <label for="t2fambus">Family Business:</label>
+            <select id="t2fambus" name="t2fambus" required>
+                <option value="true">TRUE</option>
+                <option value="false">FALSE</option>
+                <option value="null">NULL</option>
+            </select>
+            <label for="t2des">Description:</label>
+            <input type="text" id="t2des" name="t2des" required><br><br>
+            <input type="submit" value="Add Recording">
+        </form>
+        
+        <!-- Add a topic/category to a recording -->
+        <p style="color:red;text-align:center">{{addTopicMessage}}</p>
+        <form class="transaction" action="/add-topic" method="POST">
+            <p>To add a topic/category to a recording, supply the topic and the recording title.</p> 
+            <label for="t20title">Recording Title:</label>
+            <input type="text" id="t20title" name="t20title" required><br><br>
+            <label for="t20topic">Recording Topic/Category:</label>
+            <input type="text" id="t20topic" name="t20topic" required><br><br>
+            <input type="submit" value="Add Topic/Category">
+        </form>
+
+        <!-- Add a transcript -->
+        <p style="color:red;text-align:center">{{addTranscriptMessage}}</p>
+        <form class="transaction" action="/add-transcript" method="POST">
+            <p>To add a transcript, fill in the attribute values.</p>
+            <label for="t3ID">Transcript ID:</label>
+            <input type="text" id="t3ID" name="t3ID" required>
+            <label for="t3title">Recording Title:</label>
+            <input type="text" id="t3title" name="t3title" required><br><br>
+            <label for="t3file">Transcript Text File:</label>
+            <input type="file" id="t3file" name="t3file" required><br><br>
+            <input type="submit" value="Add Transcript">
+        </form>
+
+        <!-- Add a speaker -->
+        <p style="color:red;text-align:center">{{addSpeakerMessage}}</p>
+        <form class="transaction" action="/add-speaker" method="POST">
+            <p>To add a speaker, fill in the attribute values.</p>
+            <label for="t4name">Speaker's Name:</label>
+            <input type="text" id="t4name" name="t4name" required>
+            <label for="t4gender">Speaker's Gender:</label>
+            <input type="text" id="t4gender" name="t4gender" required><br><br>
+            <label for="t4nat">Speaker's Nationality:</label>
+            <input type="text" id="t4nat" name="t4nat" required><br><br>
+            <label for="t4title">Recording Title:</label>
+            <input type="text" id="t4title" name="t4title" required>
+
+            <label for="t4jew">Is Jewish:</label>
+            <select id="t4jew" name="t4jew">
+                <option value="true">TRUE</option>
+                <option value="false">FALSE</option>
+                <option value="null">NULL</option>
+            </select><br><br>
+
+            <input type="submit" value="Add Speaker">
+        </form>
+
+        <!-- Add a superuser -->
+        <p style="color:red;text-align:center">{{addSuperuserMessage}}</p>
+        <form class="transaction" action="/add-superuser" method="POST">
+            <p>To add a superuser, fill in the attribute values.</p>
+            <label for="t10username">Username:</label>
+            <input type="text" id="t10username" name="t10username" required>
+            <label for="t10password">Password:</label>
+            <input type="text" id="t10password" name="t10password" required><br><br>
+            <input type="submit" value="Add Superuser">
+        </form>
+        
+        <!-- Delete a recording -->
+        <p style="color:red;text-align:center">{{delRecordingMessage}}</p>
+        <form class="transaction" action="del-recording" method = "POST">
+            <p>To delete a recording, supply the recording title.</p>
+            <label for="t5title">Recording Title:</label><br>
+            <input type="text" id="t5title" name="t5title" required><br><br>
+            <input type="submit" value="Delete Recording">
+        </form>
+        
+        <!-- Delete a topic -->
+        <p style="color:red;text-align:center">{{delTopicMessage}}</p>
+        <form class="transaction" action="del-topic" method = "POST">
+            <p>To delete a topic, supply the topic/category's name and the recording title.</p>
+            <label for="t49rec">Recording Name:</label><br>
+            <input type="text" id="t49rec" name="t49rec" required><br><br>
+            <label for="t49name">Topic Name:</label><br>
+            <input type="text" id="t49name" name="t49name" required><br><br>
+            <input type="submit" value="Delete Topic / Category">
+        </form>
+
+        <!-- Delete a transcript -->
+        <p style="color:red;text-align:center">{{delTranscriptMessage}}</p>
+        <form class="transaction" action="del-transcript" method = "POST">
+            <p>To delete a transcript, supply the transcript ID.</p>
+            <label for="t6ID">Transcript ID:</label><br>
+            <input type="text" id="t6ID" name="t6ID" required><br><br>
+            <input type="submit" value="Delete Transcript">
+        </form>
+        
+        <!-- Delete a speaker -->
+        <p style="color:red;text-align:center">{{delSpeakerMessage}}</p>
+        <form class="transaction" action="del-speaker" method = "POST">
+            <p>To delete a speaker, supply the speaker number.</p>
+            <label for="t7num">Speaker Number:</label><br>
+            <input type="text" id="t7num" name="t7num" required><br><br>
+            <input type="submit" value="Delete Speaker">
+        </form>
+
+        <!-- Delete a superuser -->
+        <p style="color:red;text-align:center">{{delSuperuserMessage}}</p>
+        <form class="transaction" action="del-superuser" method = "POST">
+            <p>To delete a superuser, supply the superuser username.</p>
+            <label for="t50name">Username:</label><br>
+            <input type="text" id="t50name" name="t50name" required><br><br>
+            <input type="submit" value="Delete Superuser">
+        </form>
+
+        <!-- Update recording -->
+        <p style="color:red;text-align:center">{{updateRecordingMessage}}</p>
+        <form class="transaction" action="/update-recording" method="POST">
+            <p>To update a recording, fill in the attribute values that require updating. You MUST fill in the original recording title value.</p>
+            
+            <label for="t8otitle">Original Recording Title:</label>
+            <input type="text" id="t8otitle" name="t8otitle" required><br><br>
+            <label for="t8ntitle">Recording Title:</label>
+            <input type="text" id="t8ntitle" name="t8ntitle">
+            <label for="t8link">Audio File Link:</label>
+            <input type="text" id="t8link" name="t8link"><br><br>
+            <label for="t8year">Decade Recorded:</label>
+            <input type="text" id="t8year" name="t8year">
+            <label for="t8name">Interviewer Name:</label>
+            <input type="text" id="t8name" name="t8name"><br><br>
+            <label for="t8date">Publication Date:</label>
+            <input type="text" id="t8date" name="t8date">
+            <label for="t8fambus">Family Business:</label>
+            <!--input type="text" id="t8fambus" name="t8fambus"-->
+            <select id="t8fambus" name="t8fambus" required>
+                <option value="true">TRUE</option>
+                <option value="false">FALSE</option>
+                <option value="null">NULL</option>
+            </select>
+            <label for="t8des">Description:</label>
+            <input type="text" id="t8des" name="t8des"><br><br>
+            <input type="submit" value="Update Recording">
+        </form>
+
+        <!-- Update Transcript -->
+        <p style="color:red;text-align:center">{{updateTranscriptMessage}}</p>
+        <form class="transaction" action="/update-transcript" method="POST">
+            <p>To update a transcript, fill in the attribute values that require updating. You MUST fill in the original transcript ID.</p>
+            
+            <label for="t9oID">Original Transcript ID:</label>
+            <input type="text" id="t9oID" name="t9oID" required><br><br>
+            <label for="t9nID">Transcript ID:</label>
+            <input type="text" id="t9nID" name="t9nID">
+            <label for="t9file">Transcript Text File:</label>
+            <input type="file" id="t9file" name="t9file"><br><br>
+            <input type="submit" value="Update Transcript">
+        </form>
+
+        <!-- Update speaker -->
+        <p style="color:red;text-align:center">{{updateSpeakerMessage}}</p>
+         <form class="transaction" action="/update-speaker" method="POST">
+            <p>To update a speaker, fill in the attribute values that require updating. You MUST fill in the speaker number.</p>
+             
+            <label for="t10num">Speaker Number:</label>
+            <input type="text" id="t10num" name="t10num" required><br><br>
+            <label for="t10name">Speaker's Name:</label>
+            <input type="text" id="t10name" name="t10name">
+            <label for="t10gender">Speaker's Gender:</label>
+            <input type="text" id="t10gender" name="t10gender"><br><br>
+            <label for="t10nat">Speaker's Nationality:</label>
+            <input type="text" id="t10nat" name="t10nat"><br><br>
+
+            <label for="t10jew">Is Jewish:</label>
+            <select id="t10jew" name="t10jew">
+                <option value="true">TRUE</option>
+                <option value="false">FALSE</option>
+                <option value="null">NULL</option>
+            </select><br><br>
+
+            <input type="submit" value="Update Speaker">
+        </form>
+    </div>
+
+
+
+</body></html>
