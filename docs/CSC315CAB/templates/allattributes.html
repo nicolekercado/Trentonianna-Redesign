@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trentoniana Department of the Trenton Free Public Library</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <br>
+        <h1>The Trentoniana Department of the Trenton Free Public Library</h1>
+        <hr>
+    </header>
+    <h2>All of the Attributes</h2>
+
+    <table border = "1">
+        <!-- nested for loops in jinja template -->
+        <h4>Recording Attributes</h4>
+        <td>Recording Title</td> 
+        <td>Audio File Link</td> 
+        <td>Interviewer Name</td> 
+        <td>Year Recorded</td> 
+        <td>Date Published</td> 
+        <td>Family Business?</td> 
+        <td>Description</td> 
+
+        {%for row in recordingAttributes%}
+        <tr>
+            {%for col in row%}
+            <td>{{col}}</td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+    <table border = "1">
+        <h4>Speaker Attributes</h4>
+        <td>Speaker ID</td> 
+        <td>Name</td> 
+        <td>Gender</td> 
+        <td>Race</td> 
+        <td>Is Jewish?</td>
+        {%for row in speakerAttributes%}
+        <tr>
+            {%for col in row%}
+            <td>{{col}}</td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+
+    <table border = "1">
+        <h4>Transcript Attributes</h4>
+        <td>Transcript ID</td>
+        <td>Transcript Text</td>
+        <tr>
+        <td>{{transcriptID}}</td>
+        <td><a href="{{ url_for('transcript') }}">Transcript Text</a></td>
+        </tr>
+    </table>
+
+</body></html>
