@@ -1,0 +1,42 @@
+<!-- Transcript Page -->
+<!-- Implemented by Jabili -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trentoniana Department of the Trenton Free Public Library</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <br>
+        <h1>The Trentoniana Department of the Trenton Free Public Library</h1>
+        <hr>
+    </header>
+    <h2>Transcript</h2>
+    <!-- Display Transcript -->
+    <!-- Implemented by Lakaylah-->
+     <!-- <class="tsContent"-->
+        <style>
+            pre {
+                /*display: block;*/
+                overflow-x: auto;
+                white-space: pre-wrap;
+                white-space: -moz-pre-wrap;
+                white-space: -pre-wrap;
+                white-space: -o-pre-wrap;
+                word-wrap: break-word;
+            }
+        </style>
+        <pre>
+            {{content}}
+        </pre>
+        <!--/class-->
+    
+
+
+</body></html>
