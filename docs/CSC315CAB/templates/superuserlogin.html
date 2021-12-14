@@ -1,0 +1,36 @@
+<!-- Superuser login Page -->
+<!-- Implemented by Jabili -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trentoniana Department of the Trenton Free Public Library</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+<body>
+    <header>
+        <br>
+        <h1>The Trentoniana Department of the Trenton Free Public Library</h1>
+        <hr>
+    </header>
+    <h2>Superuser Login Page</h2>
+
+    <!-- Login form -->
+    <p style="color:red;text-align:center">{{message}}</p>
+    <div class="login">
+    <form action="/log-in" method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <br>
+        <label for="pwd">Password:</label><br>
+        <input type="password" id="pwd" name="pwd" required><br><br>
+        <input type="submit" value="Log In">
+    </form>
+    </div>
+
+
+</body></html>
