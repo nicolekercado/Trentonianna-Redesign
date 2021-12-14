@@ -1,0 +1,120 @@
+<!-- Home page of site -- Implemented by Jabili -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trentoniana Department of the Trenton Free Public Library</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <br>
+        <h1>The Trentoniana Department of the Trenton Free Public Library</h1>
+        <hr>
+    </header>
+
+    <aside>
+        <!-- Link to superuser login -->
+        <p class="superuser">Superuser? Log in <a href="{{ url_for('superuserlogin') }}">here</a></p>
+        
+        <!-- Form for searching by recording title -->
+        <form class="searchBar" action="/search-recording" method="POST">
+            <label for="searchRecording"></label>
+            <input type="search" id="searchRecording" name="searchRecording" placeholder="Search By Title">
+            <input type="submit" value="Search">
+        </form>
+
+        <!-- Form for filtering recordings -->
+        <form class="filter" action="/filter-recording" method="POST">
+            <h3>Filters:</h3>
+            <p class="filterHeading">Decade Recorded</p>
+            <input type="checkbox" id="year1" name="year1" value="1900">
+            <label for="year1"> 1900</label>
+            <input type="checkbox" id="year2" name="year2" value="1910">
+            <label for="year2"> 1910</label>
+            <input type="checkbox" id="year3" name="year3" value="1920">
+            <label for="year3"> 1920</label><br>
+            <input type="checkbox" id="year4" name="year4" value="1930">
+            <label for="year4"> 1930</label>
+            <input type="checkbox" id="year5" name="year5" value="1940">
+            <label for="year5"> 1940</label>
+            <input type="checkbox" id="year6" name="year6" value="1950">
+            <label for="year6"> 1950</label><br>
+            <input type="checkbox" id="year7" name="year7" value="1960">
+            <label for="year7"> 1960</label>
+            <input type="checkbox" id="year8" name="year8" value="1970">
+            <label for="year8"> 1970</label>
+            <input type="checkbox" id="year9" name="year9" value="1980">
+            <label for="year9"> 1980</label><br>
+            <input type="checkbox" id="year10" name="year10" value="1990">
+            <label for="year10"> 1990</label>
+            <input type="checkbox" id="year11" name="year11" value="2000">
+            <label for="year11"> 2000</label>
+            <input type="checkbox" id="year12" name="year12" value="2010">
+            <label for="year12"> 2010</label><br>
+            <input type="checkbox" id="year13" name="year13" value="2020">
+            <label for="year13"> 2020</label>
+
+            <p class="filterHeading">Topics & Categories</p>
+            <input type="checkbox" id="topic1" name="topic1" value="Jewish">
+            <label for="topic1"> Jewish</label><br>
+            <input type="checkbox" id="topic2" name="topic2" value="Trenton">
+            <label for="topic2"> Trenton</label><br>
+            <input type="checkbox" id="topic3" name="topic3" value="N.J.">
+            <label for="topic3"> N.J.</label><br>
+            <input type="checkbox" id="topic4" name="topic4" value="Business">
+            <label for="topic4"> Business</label><br>
+            <input type="checkbox" id="topic5" name="topic5" value="Education">
+            <label for="topic5"> Education</label><br>
+            <input type="checkbox" id="topic6" name="topic6" value="World War II">
+            <label for="topic6"> World War II</label>
+
+            <p class="filterHeading">Nationality (Speaker)</p>
+            <input type="checkbox" id="nationality1" name="nationality1" value="Polish">
+            <label for="nationality1"> Polish</label>
+
+            <p class="filterHeading">Is Jewish? (Speaker)</p>
+            <input type="radio" id="jewish" name="jewish" value="TRUE">
+            <label for="jewish"> Yes</label><br>
+            <input type="radio" id="notJewish" name="jewish" value="FALSE">
+            <label for="notJewish"> No</label><br>
+
+            <p class="filterHeading">Gender (Speaker)</p>
+            <input type="checkbox" id="gender1" name="gender1" value="Female">
+            <label for="gender1"> Female</label><br>
+            <input type="checkbox" id="gender2" name="gender2" value="Male">
+            <label for="gender2"> Male</label><br>
+            <input type="checkbox" id="gender3" name="gender3" value="Other">
+            <label for="gender3"> Other</label><br><br>
+
+            <input type="submit" value="Filter">
+            <input type="reset">
+        </form>
+    </aside>
+
+    <section>
+        <table>
+            <!-- nested for loops in jinja template -->
+            <form class="recording" action="/recording" method="POST">
+            {%for row in rows%}
+            <tr>
+                {%for col in row%}
+                <input type="radio" id={{col}} name="recording" value="{{col}}">
+                <!-- <td>{{col}}</td> -->
+                <label for={{col}}>{{col}}</label><br>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+            <br>
+            <input type="submit" value="Select Recording">
+            </form>
+        </table>
+    </section>
+</body>
+
+</html>
